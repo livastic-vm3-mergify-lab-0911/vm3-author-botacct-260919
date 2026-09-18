@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: VM3 author bot-account copy control/treatment
+    conditions:
+      - "title ~= ^VM3 AUTHOR BOT ACCOUNT (CONTROL|TREATMENT) 260919$"
+    actions:
+      copy:
+        branches:
+          - release
+        bot_account: "{{ author }}"
