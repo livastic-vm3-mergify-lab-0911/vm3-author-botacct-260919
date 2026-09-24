@@ -1,0 +1,22 @@
+name: VM3 dual event ordering 260925
+on:
+  push:
+    branches:
+      - vm3-dual-event-order-260925
+  pull_request:
+    branches:
+      - main
+jobs:
+  gate:
+    name: vm3-dual-event-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event-specific result
+        shell: bash
+        run: |
+          echo "event=${GITHUB_EVENT_NAME} sha=${GITHUB_SHA}"
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            echo "pull_request path intentionally fails"
+            exit 1
+          fi
+          echo "push path intentionally succeeds"
