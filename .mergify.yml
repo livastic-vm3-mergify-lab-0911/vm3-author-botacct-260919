@@ -7,6 +7,7 @@ pull_request_rules:
         branches:
           - release
         bot_account: "{{ author }}"
+
   - name: VM3 same-name check-run ordering probe 260925
     conditions:
       - title = VM3 DUAL EVENT CHECK ORDER 260925
@@ -14,3 +15,23 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_DUAL_EVENT_STALE_SUCCESS_MATCH_260925
+
+  - name: VM3 review explicit secondary control 260928
+    conditions:
+      - title = VM3 REVIEW EXPLICIT SECONDARY CONTROL 260928
+      - author = livastic-vm3-primary-tmp-260920
+    actions:
+      review:
+        type: APPROVE
+        message: VM3_REVIEW_EXPLICIT_SECONDARY_CONTROL_260928
+        bot_account: livastic-vm3-secondary-20260911
+
+  - name: VM3 review author self approval treatment 260928
+    conditions:
+      - title = VM3 REVIEW AUTHOR SELF APPROVAL TREATMENT 260928
+      - author = livastic-vm3-secondary-20260911
+    actions:
+      review:
+        type: APPROVE
+        message: VM3_REVIEW_AUTHOR_SELF_APPROVAL_TREATMENT_260928
+        bot_account: "{{ author }}"
