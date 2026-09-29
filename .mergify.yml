@@ -14,3 +14,7 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_DUAL_EVENT_STALE_SUCCESS_MATCH_260925
+
+commands_restrictions:
+  refresh:
+    conditions: true
