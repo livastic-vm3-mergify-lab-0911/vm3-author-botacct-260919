@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - vm3-dual-event-order-260925
-      - vm3-review-selfapprove-control-260928
   pull_request:
     branches:
       - main
