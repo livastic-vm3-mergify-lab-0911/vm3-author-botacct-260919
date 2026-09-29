@@ -14,9 +14,3 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_DUAL_EVENT_STALE_SUCCESS_MATCH_260925
-  - name: VM3 self command reentry probe 260929
-    conditions:
-      - title = VM3 SELF COMMAND REENTRY 260929
-    actions:
-      comment:
-        message: "{{ body }}"
